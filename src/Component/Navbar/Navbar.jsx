@@ -5,6 +5,7 @@ import {
   MapPin,
   ChevronDown,
   Menu,
+  UserRound,
 } from "lucide-react";
 import Cart from "../Cart/Cart";
 import { useState } from "react";
@@ -76,9 +77,10 @@ function Navbar({ setIsCartOpen }) {
           <Cart setIsCartOpen={setIsCartOpen}/>
           
           {/* Login */}
-          <button className="text-lg hidden md:block bg-[#FC8019] text-white px-5 py-2 rounded-lg hover:bg-[#E46F12] transition cursor-pointer">
+          <button className="hidden md:flex items-center gap-2 font-medium text-gray-800 hover:text-[#FC8019] transition cursor-pointer">
+            <UserRound size={18} strokeWidth={2} />
 
-            Login
+             <span>Sign In</span>
 
           </button>
 

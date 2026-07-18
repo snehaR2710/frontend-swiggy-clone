@@ -11,7 +11,7 @@ function CartRestaurant({ cartItems }) {
             <div>
                 <h2 className="text-2xl font-bold text-gray-800">{restaurant.name}</h2>
                 <p className="text-gray-500 mt-1">{restaurant.location}</p>
-                <button className="mt-3 text-[#5B8BD9] text-sm font-bold hover:underline">VIEW FULL MENU</button>
+                <button className="mt-3 text-[#5B8BD9] text-sm font-bold hover:underline cursor-pointer">VIEW FULL MENU</button>
             </div>
         </div>
     )

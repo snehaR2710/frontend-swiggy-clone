@@ -10,15 +10,6 @@ function CartSidebar({
   removeFromCart
 }) {
 
-    console.log(cartItems);
-    
-
-    // const totalPrices = cartItems.reduce(
-    //     (total, item) => 
-    //         total + item.price * item.quantity,
-    //     0
-    // )
-
     const subtotal = cartItems.reduce(
         (total, item) =>
             total + item.price * item.quantity,

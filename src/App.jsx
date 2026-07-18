@@ -6,6 +6,7 @@ import Layout from "./Layout/Layout";
 import { Toaster } from "react-hot-toast";
 import NotFound from "./Pages/NotFound";
 import SearchPage from "./Pages/SearchPage";
+import CartPage from "./Pages/CartPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/restaurant/:id" element={<Restaurentdetails />} />
           <Route path="*" element={<NotFound />} />
