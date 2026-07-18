@@ -39,7 +39,7 @@ export default function CategoryAccordion({
 
 return(
 
-  <div className="max-w-3xl mx-auto px-4">
+  <div className="max-w-3xl mx-auto px-4 md:px-0">
     {menuData.map((section) => {
       const filteredItems = getFilteredItems(section.items)
       if (filteredItems.length === 0 ) return null
@@ -49,8 +49,8 @@ return(
       return (
         <div key={section.category} className="mb-4">
           <div onClick={() => toggleCategory(section.category)} className="flex justify-between items-center cursor-pointer py-4 border-b border-gray-200">
-            <h2 className="text-3xl font-bold">{section.category}({filteredItems.length})</h2>
-            <span className={`text-2xl transition-transform duration-200 ${
+            <h2 className="text-xl md:text-3xl font-bold">{section.category}({filteredItems.length})</h2>
+            <span className={`text-xl md:text-2xl transition-transform duration-200 ${
               isOpen ? "rotate-180" : ""
             }`}>⌃</span>
           </div>

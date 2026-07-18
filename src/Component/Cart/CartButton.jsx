@@ -12,7 +12,7 @@ function CartButton({ isCartHovered }) {
     return (
         <button className="group flex items-center gap-1 cursor-pointer font-medium">
             <CartIcon itemCount={itemCount} isCartHovered={isCartHovered} />
-            <span className="group-hover:text-[#FC8019]">Cart</span>
+            <span className="group-hover:text-[#FC8019] text-lg">Cart</span>
         </button>
     )
 

@@ -48,20 +48,20 @@ switch (sortBy) {
 }
 
   return (
-    <section className="bg-white pt-10 pb-16">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-white pt-6 md:pt-10 pb-12 md:pb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="border-t border-gray-200 border-1 mb-5"></div>
         {/* Heading */}
-        <h2 className="text-2xl font-bold mb-5">
+        <h2 className="text-xl md:text-3xl font-bold mb-5">
           Restaurants with online food delivery in Gurgaon
         </h2>
 
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <FilterBar sortBy={sortBy} setSortBy={setSortBy} />
         </div>
 
         {/* grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {restaurants.length === 0 ? (
             Array(8)
               .fill("")
@@ -79,17 +79,17 @@ switch (sortBy) {
           ) : (
             <div className="col-span-full flex flex-col justify-center items-center py-20">
               {/* Circle Icon */}
-              <div className="w-40 h-40 rounded-full bg-gray-200 flex justify-center items-center">
+              <div className="w-28 h-28 md:w-40 md:h-40 rounded-full bg-gray-200 flex justify-center items-center">
                 <div className="w-6 h-6 rounded-full border-4 border-gray-400"></div>
               </div>
 
               {/* Heading */}
-              <h2 className="text-4xl font-bold text-gray-400 mt-8">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-400 mt-8">
                 No Result Found
               </h2>
 
               {/* Subtext */}
-              <p className="text-gray-400 text-xl mt-3">
+              <p className="text-gray-400 text-base md:text-xl mt-3">
                 Try searching something else
               </p>
             </div>

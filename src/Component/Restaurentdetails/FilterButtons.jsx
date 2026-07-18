@@ -10,11 +10,11 @@ export default function FilterButtons({ activeFilter, setActiveFilter }) {
 
         <div className="max-w-4xl mx-auto mt-8">
 
-            <div className="flex gap-4">
+            <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
 
                 <button
                     onClick={() => handleClick("veg")}
-                    className={`px-5 py-2 rounded-full border transition cursor-pointer ${activeFilter === "veg"
+                    className={`px-4 md:px-5 py-2 whitespace-nowrap rounded-full border transition cursor-pointer ${activeFilter === "veg"
                         ? "bg-green-600 text-white border-green-600"
                         : "bg-white hover:bg-gray-100"
                     }`}
@@ -24,7 +24,7 @@ export default function FilterButtons({ activeFilter, setActiveFilter }) {
 
                 <button
                     onClick={() => handleClick("nonveg")}
-                    className={`px-5 py-2 rounded-full border transition cursor-pointer ${
+                    className={`px-4 md:px-5 py-2 whitespace-nowrap rounded-full border transition cursor-pointer ${
                         activeFilter === "nonveg"
                         ? "bg-red-600 text-white border-red-600"
                         : "bg-white hover:bg-gray-100"
@@ -35,7 +35,7 @@ export default function FilterButtons({ activeFilter, setActiveFilter }) {
 
                 <button
                     onClick={() => handleClick("bestseller")}
-                    className={`px-5 py-2 rounded-full border transition cursor-pointer ${
+                    className={`px-4 md:px-5 py-2 whitespace-nowrap rounded-full border transition cursor-pointer ${
                         activeFilter === "bestseller"
                         ? "bg-orange-500 text-white border-orange-500"
                         : "bg-white hover:bg-gray-100"
