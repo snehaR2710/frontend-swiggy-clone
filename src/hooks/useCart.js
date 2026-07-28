@@ -1,78 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 function useCart() {
-    const [cartItems, setCartItems] = useState([])
 
+    const [cartItems, setCartItems] = useState(() => {
+        const savedCart = localStorage.getItem("cart")
 
-    // remove from cart
-
-    const removeFromCart = (foodId) => {
-
-        const item = cartItems.find(
-            (item) => item.id === foodId
-        )
-
-        setCartItems((prev) => 
-            prev.filter((item) => item.id !== foodId)
-        )
-
-        if(item) {
-            toast(`${item.name} removed from the cart`)
+        if(savedCart){
+            return JSON.parse(savedCart)
         }
-    }
 
-    // const removeFromCart = (foodId) => {
-    //     setCartItems((prev) => 
-    //         prev.filter((item) => item.id !== foodId)
-    //     )
+        return []
+    })
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems))
+    }, [cartItems])
 
-        
-    // } 
-
-    // Add items
-    const addToCart = (food) => {
-
-        setCartItems((prev) => {
-
-            const existingItem = prev.find(
-                (item) => item.id === food.id
+    function addToCart(item) {
+        setCartItems((prevItems) => {
+            const existingItem = prevItems.find(
+                (cartItem) => cartItem.id === item.id
             )
             if(existingItem) {
-                return prev.map((item) =>
-                    item.id === food.id
-                       ? {...item, quantity: item.quantity + 1}
-                       : item 
+                return prevItems.map((cartItem) =>
+                    cartItem.id === item.id
+                      ? {
+                        ...cartItem,
+                        quantity: cartItem.quantity + 1
+                      }
+                      : cartItem  
                 )
             }
-
-            toast.success(`${food.name} added to cart`);
+            toast.success(`${item.name} added to the cart`)
 
             return [
-                ...prev,
-                {...food, quantity: 1}
+                ...prevItems,
+                {
+                    ...item,
+                    quantity: 1,
+                }
             ]
+
         })
     }
 
-    // Decrease quantity
-    const decreaseQuantity = (foodId) => {
-        setCartItems((prev) => 
-            prev
-                .map((item) => 
-                    item.id === foodId
-                    ? {...item, quantity: item.quantity - 1}
-                    : item
+    // decrement logics 
+    function decreaseQuantity(id) {
+        setCartItems((prevItems) => 
+            prevItems
+               .map((item) => 
+                 item.id === id
+                   ? {
+                      ...item,
+                      quantity: item.quantity - 1,
+                     }
+                   : item
             )
             .filter((item) => item.quantity > 0)
         )
+    }
+
+    // removed items From Cart
+    function removeFromCart(id) {
+        setCartItems((prevItems) => 
+            prevItems.filter((item) => item.id !== id)
+        )
+
+        toast.success(`item removed`)
+    }
+
+    function clearCart() {
+        setCartItems([])
     }
 
     return {
         cartItems,
         addToCart,
         decreaseQuantity,
-        removeFromCart
+        removeFromCart,
+        clearCart
     }
 }
 

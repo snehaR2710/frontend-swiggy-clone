@@ -37,15 +37,15 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }) {
         {/* Navigation */}
         <div className="flex flex-col p-5 gap-6">
 
-          <Link className="text-left text-gray-800 font-semibold text-xl hover:text-[#FC8019] cursor-pointer">
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-800 font-semibold text-xl hover:text-[#FC8019] cursor-pointer">
             Home
           </Link>
 
-          <Link to="/search" className="text-left text-gray-800 text-xl font-semibold hover:text-[#FC8019] cursor-pointer">
+          <Link to="/search" onClick={() => setIsMenuOpen(false)} className="text-left text-gray-800 text-xl font-semibold hover:text-[#FC8019] cursor-pointer">
             Search
           </Link>
 
-          <Link className="text-left text-gray-800 text-xl font-semibold hover:text-[#FC8019] cursor-pointer">
+          <Link to="/signin" className="text-left text-gray-800 text-xl font-semibold hover:text-[#FC8019] cursor-pointer">
             Sign In
           </Link>
 

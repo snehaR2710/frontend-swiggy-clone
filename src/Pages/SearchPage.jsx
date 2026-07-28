@@ -69,7 +69,7 @@ function SearchPage() {
       </div>
 
       {/* Popular Searches */}
-      {/* {!searchTerm && (
+      {!searchTerm && (
         <div className="mt-12">
 
           <h2 className="text-xl font-bold mb-5">
@@ -109,7 +109,7 @@ function SearchPage() {
           </div>
 
         </div>
-      )} */}
+      )}
 
       {searchTerm && (
         <div className="mt-10">

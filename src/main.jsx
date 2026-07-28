@@ -4,11 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import RestaurentProvider from "./Context/RestaurentContext.jsx";
 import CartProvider from "./Context/CartContext.jsx";
+import { AuthProvider } from "./Context/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <RestaurentProvider>
-    <CartProvider>
-      <App />
-    </CartProvider>
-  </RestaurentProvider>,
+  <AuthProvider>
+    <RestaurentProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </RestaurentProvider>
+    ,
+  </AuthProvider>,
 );
