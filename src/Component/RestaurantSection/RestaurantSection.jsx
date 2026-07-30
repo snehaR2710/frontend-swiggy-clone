@@ -1,28 +1,28 @@
 import { useState } from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import ShimarCard from "../ShimarCard/ShimarCard";
-import { useContext } from "react";
-import { RestaurantContext } from "../../Context/RestaurentContext";
+// import { useContext } from "react";
+// import { RestaurantContext } from "../../Context/RestaurentContext";
 import FilterBar from "./FilterBar";
+import restaurantCarouselData from "../../data/restaurantCarouselData";
 
 function RestaurantSection({ addToCart, decreaseQuantity, cartItems, activeCategory,  }) {
 
-  const { restaurants } = useContext(RestaurantContext);
+  // const { restaurants } = useContext(RestaurantContext);
 
   const [sortBy, setSortBy] = useState("");
 
 // Cuisine ke hisaab se filter - agar "All" hai to sab dikhao,
 // warna sirf wahi restaurants jinke cuisine mein ye naam ho
-  const filteredRestaurants = restaurants.filter((restaurent) => {
+  const filteredRestaurants = restaurantCarouselData.filter((restaurant) => {
     if(!activeCategory || activeCategory === "All") return true
 
-    return restaurent.cuisine
-       ?.toLowerCase()
-       .includes(activeCategory.toLowerCase())
+    return (
+      restaurant.cuisines
+        ?.toLowerCase()
+        .includes(activeCategory.toLowerCase())
+    )
   })
-
-  // const filteredRestaurants = [...restaurants]
-
   const sortedRestaurants = [...filteredRestaurants];
 
   // shorting the buttons
@@ -48,12 +48,15 @@ switch (sortBy) {
 }
 
   return (
-    <section className="bg-white pt-6 md:pt-10 pb-12 md:pb-16">
+    <section className="bg-white pt-6 md:pt-10 pb-12 md:pb-16" id="restaurants">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="border-t border-gray-200 border-1 mb-5"></div>
         {/* Heading */}
         <h2 className="text-xl md:text-3xl font-bold mb-5">
-          Restaurants with online food delivery in Gurgaon
+          {activeCategory && activeCategory !== "All"
+             ? `${activeCategory} Restaurants in Gurgaon`
+             : "Restaurants with online food delivery in Gurgaon"
+          }
         </h2>
 
         <div className="mb-6 md:mb-8">
@@ -62,7 +65,7 @@ switch (sortBy) {
 
         {/* grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {restaurants.length === 0 ? (
+          {restaurantCarouselData.length === 0 ? (
             Array(8)
               .fill("")
               .map((_, index) => <ShimarCard key={index} />)
@@ -83,8 +86,7 @@ switch (sortBy) {
                 <div className="w-6 h-6 rounded-full border-4 border-gray-400"></div>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-400 mt-8">
+              {/* Heading */}BN/               <h2 className="text-2xl md:text-4xl font-bold text-gray-400 mt-8">
                 No Result Found
               </h2>
 

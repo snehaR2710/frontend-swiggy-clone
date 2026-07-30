@@ -9,6 +9,7 @@ import FilterButtons from "../Component/Restaurentdetails/FilterButtons";
 import CategoryAccordion from "../Component/Restaurentdetails/CategoryAccordion";
 import { CartContext } from "../Context/CartContext";
 import NotFound from "./NotFound";
+import restaurantCarouselData from "../data/restaurantCarouselData";
 
 function Restaurentdetails() {
 
@@ -20,26 +21,10 @@ function Restaurentdetails() {
 
     // const [restaurantInfo, setRestaurantInfo] = useState(null)    
 
-    const restaurant = restaurants.find(
-  (r) => r.id === id
-   );
-
-//   useEffect(() => {
-//   const fetchMenu = async () => {
-//     try {
-
-//       const data = await getRestaurantMenu(id);
-//       const regularCards = data.data.cards.find((card) => card.groupedCard).groupedCard.cardGroupMap.REGULAR.cards;
-
-//       setRestaurantInfo(regularCards)
-//     } catch (err) {
-//       console.log("MENU ERROR:", err);
-//     }
-//   };
-
-//   fetchMenu();
-// }, [id]);
-
+    const restaurant = 
+      restaurants.find((r) => String(r.id) === id) ||
+      restaurantCarouselData.find((r) => String(r.id) === id)
+    
 // Restaurent are still loading
 if(restaurants.length === 0){
   return (

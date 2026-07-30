@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import restaurantCarouselData from "../../data/restaurantCarouselData";
 
 function RestaurantCarousel() {
@@ -64,7 +65,8 @@ function RestaurantCarousel() {
           style={{ transform: `translateX(-${currentIndex * CARD_WIDTH}px)` }}
         >
           {restaurents.map((restaurent) => (
-            <div
+            <Link
+              to={`/restaurant/${restaurent.id}`}
               key={restaurent.id}
               className="min-w-[200px] md:min-w-[280px] cursor-pointer transition-transform duration-300 hover:scale-95"
             >
@@ -95,7 +97,7 @@ function RestaurantCarousel() {
                 {restaurent.cuisines}
               </p>
               <p className="text-gray-500 truncate">{restaurent.location}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
