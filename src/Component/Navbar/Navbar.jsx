@@ -1,4 +1,4 @@
-import logo from "../../assets/logo1.png";
+// import logo from "../../assets/logo1.png";
 
 import { Search, MapPin, ChevronDown, Menu, UserRound } from "lucide-react";
 import Cart from "../Cart/Cart";
@@ -8,9 +8,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import LoginModal from "../Auth/LoginModal";
 import UserMenu from "../Auth/UserMenu";
+import mealgoLogo from "../../assets/mealgo-logo.png";
 
 function Navbar({ setIsCartOpen }) {
-  const [showUserMenu, setShowUserMenu] = useState(false)
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const { user, logout } = useAuth();
@@ -30,8 +31,8 @@ function Navbar({ setIsCartOpen }) {
           {/* Logo */}
           <div className="cursor-pointer">
             <img
-              src={logo}
-              alt="Swiggy Logo"
+              src={mealgoLogo}
+              alt="MealGo"
               className="w-14 h-14 object-contain md:w-14 md:h-14"
             />
           </div>
@@ -69,17 +70,18 @@ function Navbar({ setIsCartOpen }) {
 
           <div className="relative hidden md:block">
             {user ? (
-             
               <div>
-                <button onClick={() => setShowUserMenu(!showUserMenu)} className="flex items-center gap-2 font-medium hover:text-[#FC8019] transition cursor-pointer">
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="flex items-center gap-2 font-medium hover:text-[#FC8019] transition cursor-pointer"
+                >
                   <UserRound size={18} />
                   <span>{user.name}</span>
                   <ChevronDown size={16} />
                 </button>
-                {
-                  showUserMenu && (
-                    <UserMenu onClose={() => setShowUserMenu(false)} />
-                  )}
+                {showUserMenu && (
+                  <UserMenu onClose={() => setShowUserMenu(false)} />
+                )}
               </div>
             ) : (
               <button

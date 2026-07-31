@@ -1,4 +1,4 @@
-import logo from "../assets/logo1.png";
+import mealgologo from "../assets/mealgo-logo.png";
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div>
-            <img src={logo} alt="Logo" className="w-14" />
+            <img src={mealgologo} alt="Logo" className="w-14" />
 
             <p className="mt-3 text-gray-600">
               Swiggy Clone built with React & Tailwind CSS.
