@@ -49,10 +49,6 @@ function MobileMenu({ isMenuOpen, setIsMenuOpen }) {
             Sign In
           </Link>
 
-          {/* <button className="text-left text-lg font-medium hover:text-[#FC8019] cursor-pointer">
-            Gurgaon
-          </button> */}
-
         </div>
       </div>
     </>
