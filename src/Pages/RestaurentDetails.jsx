@@ -19,11 +19,10 @@ function Restaurentdetails() {
     const [searchTerm, setSearchTerm] = useState("")
     const [activeFilter, setActiveFilter] = useState(null)
 
-    // const [restaurantInfo, setRestaurantInfo] = useState(null)    
-
     const restaurant = 
       restaurants.find((r) => String(r.id) === id) ||
       restaurantCarouselData.find((r) => String(r.id) === id)
+      
     
 // Restaurent are still loading
 if(restaurants.length === 0){

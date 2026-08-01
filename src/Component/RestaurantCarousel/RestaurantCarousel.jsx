@@ -1,10 +1,13 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import restaurantCarouselData from "../../data/restaurantCarouselData";
 
 function RestaurantCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate()
+
+  // 
 
   const [isMobile, setIsMobile] = useState(0)
 
